@@ -19,6 +19,7 @@
   "homepage": "https://github.com/whelandrew/imagesortingserver#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "dropbox": "^9.6.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
   }
