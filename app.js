@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 
-const hostname = 'localhost';
-const port = 3000;
+//const hostname = 'localhost';
+//const port = 3000;
+const port = app.listen(process.env.PORT || 3000);
 
 const fetch = require('node-fetch');
 
