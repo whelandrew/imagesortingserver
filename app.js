@@ -51,6 +51,16 @@ app.get('/', (req,res) => {
 	});
 });
 */
+
+app.get('/login', (req,res) => {
+	console.log('login');
+	dbx.auth.getAuthenticationUrl(redirectUri, null, 'code', 'offline', null, 'none', false)
+	.then((authUrl) =>
+	{
+		res.writeHead(302, {Location: authUrl});
+		res.end();
+	}
+});
 app.get('/auth', function(req, res) {
 	const {code} = req.query;
 	console.log(`code:${code}`);
