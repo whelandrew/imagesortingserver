@@ -36,7 +36,8 @@ app.use(function(req, res, next) {
 app.use(express.json());
 
 ////////// AUTH ////////////
-const redirectUri = `http://${hostname}:${port}/auth`;
+//const redirectUri = `http://${hostname}:${port}/auth`;
+const redirectUri = `https://kromsimagesortingserver.herokuapp.com/auth`;
 
 app.get('/', (req,res) => {
 	console.log('request');
