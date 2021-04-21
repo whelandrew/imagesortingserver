@@ -40,6 +40,7 @@ app.use(express.json());
 //const redirectUri = `http://${hostname}:${port}/auth`;
 const redirectUri = `https://kromsimagesortingserver.herokuapp.com/auth`;
 
+/*
 app.get('/', (req,res) => {
 	console.log('request');
 	dbx.auth.getAuthenticationUrl(redirectUri, null, 'code', 'offline', null, 'none', false)
@@ -49,7 +50,7 @@ app.get('/', (req,res) => {
 		res.end();
 	});
 });
-
+*/
 app.get('/auth', function(req, res) {
 	const {code} = req.query;
 	console.log(`code:${code}`);
