@@ -40,7 +40,6 @@ app.use(express.json());
 //const redirectUri = `http://${hostname}:${port}/auth`;
 const redirectUri = `https://kromsimagesortingserver.herokuapp.com/auth`;
 
-
 app.get('/login', (req,res) => {
 	console.log('login');
 	dbx.auth.getAuthenticationUrl(redirectUri, null, 'code', 'offline', null, 'none', false)
@@ -158,7 +157,9 @@ app.post('/ListFolder', function(req, res)
 //app.use("/GetMetaData", DropBoxRouting);
 //routes.initialize(app);
 
-app.listen(port);
+app.get('/', (req, res) =>
+{
+}).listen(port);
 
 
 
