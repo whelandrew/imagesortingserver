@@ -116,9 +116,10 @@ app.post('/ListSharedLinks', function(req, res)
 	});
 })
 
-app.get('/ShowImage', function(req, res)
+app.post('/ShowImage', function(req, res)
 {
 	console.log('ShowImage');
+	
 });
 
 app.post('/ListFolder', function(req, res) 
