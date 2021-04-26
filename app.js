@@ -4,7 +4,12 @@ const axios = require('axios');
 
 //const hostname = 'localhost';
 //const port = 3000;
-const port = app.listen(process.env.PORT || 3000);
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 
 const fetch = require('node-fetch');
 
@@ -26,6 +31,12 @@ const authRouter = require('./routes/auth');
 const DropBoxRouting = require('./routes/DropBoxRouting')
 */
 
+const { Pool } = require('pg');
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+});
+
 console.log("Database_URL", process.env.DATABASE_URL);
 
 app.set('view engine', 'pug');
@@ -42,6 +53,9 @@ app.use(express.json());
 ////////// AUTH ////////////
 //const redirectUri = `http://${hostname}:${port}/auth`;
 const redirectUri = `https://kromsimagesortingserver.herokuapp.com/auth`;
+
+
+
 
 app.get('/login', (req,res) => {
 	console.log('login');
@@ -160,9 +174,7 @@ app.post('/ListFolder', function(req, res)
 //app.use("/GetMetaData", DropBoxRouting);
 //routes.initialize(app);
 
-app.get('/', (req, res) =>
-{
-}).listen(port);
+
 
 
 
