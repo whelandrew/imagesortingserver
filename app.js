@@ -120,7 +120,13 @@ app.post('/ShowImage', function(req, res)
 {
 	console.log('ShowImage');
 	const html = require('./views/showImage.pug');
-	res.send(html);
+	try{
+		res.send(html);
+	}
+	catch(function(error)){
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 app.post('/ListFolder', function(req, res) 
