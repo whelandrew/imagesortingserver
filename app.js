@@ -92,7 +92,6 @@ app.post('/GetMetaData', function(req, res)
 	});
 })
 
-const imageView = require('./views/showImage.pug');
 app.post('/ListSharedLinks', function(req, res) 
 {			
 	console.log('ListSharedLinks');	
@@ -109,16 +108,18 @@ app.post('/ListSharedLinks', function(req, res)
 		}
 	})	
 	.then(function (response) {
-		let data = response.data.links;
-		data.links.html = imageView;
-		
-		res.send(JSON.stringify(data));
+		res.send(JSON.stringify(response.data.links));
 	})
 	.catch(function (error) {
 		console.log(error);
 		res.status(500).send(error);
 	});
 })
+
+app.get('/ShowImage', function(req, res)
+{
+	console.log('ShowImage');
+});
 
 app.post('/ListFolder', function(req, res) 
 {			
