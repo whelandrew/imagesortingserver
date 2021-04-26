@@ -32,11 +32,7 @@ app.use(function(req, res, next) {
 app.use(express.json());
 
 ////////// AUTH ////////////
-//const redirectUri = `http://${hostname}:${port}/auth`;
 const redirectUri = `https://kromsimagesortingserver.herokuapp.com/auth`;
-
-
-
 
 app.get('/login', (req,res) => {
 	console.log('login');
@@ -47,7 +43,6 @@ app.get('/login', (req,res) => {
 		res.end();
 	});
 });
-
 
 app.get('/auth', function(req, res) {
 	const {code} = req.query;
@@ -97,6 +92,7 @@ app.post('/GetMetaData', function(req, res)
 	});
 })
 
+const imageView = require('./views/showImage.pug');
 app.post('/ListSharedLinks', function(req, res) 
 {			
 	console.log('ListSharedLinks');	
@@ -113,7 +109,10 @@ app.post('/ListSharedLinks', function(req, res)
 		}
 	})	
 	.then(function (response) {
-		res.send(JSON.stringify(response.data.links));
+		let data = response.data.links;
+		data.links.html = imageView;
+		
+		res.send(JSON.stringify(data));
 	})
 	.catch(function (error) {
 		console.log(error);
