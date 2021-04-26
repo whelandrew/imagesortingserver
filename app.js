@@ -1,18 +1,7 @@
 const express = require('express');
 const app = express();
 const axios = require('axios');
-
-//const hostname = 'localhost';
-//const port = 3000;
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
-
-
 const fetch = require('node-fetch');
-
 const { Dropbox } = require('dropbox');
 
 const config = {
@@ -25,19 +14,11 @@ const token = 'Bearer EpRJFxG887UAAAAAAAAAASVn-5KxUdFgvlT8sQE_tqnjkvSq-7iAlTeGk5
 
 const dbx = new Dropbox(config);
 
-/*
-const routes = require('./routes/index');
-const authRouter = require('./routes/auth');
-const DropBoxRouting = require('./routes/DropBoxRouting')
-*/
-
 const { Pool } = require('pg');
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false }
 });
-
-console.log("Database_URL", process.env.DATABASE_URL);
 
 app.set('view engine', 'pug');
 
@@ -171,45 +152,6 @@ app.post('/ListFolder', function(req, res)
 		});			
 })
 
-//app.use("/GetMetaData", DropBoxRouting);
-//routes.initialize(app);
-
-
-
-
-
-/*
-app.route('/Node').get(function(req, res)
-{
-	res.send('Tutorial on Node');
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-
-app.route('/Angular').get(function(req,res)
-{
-	res.send('Tutorial on Angular');
-});
-*/
-
-
-
-/*
-const http = require('http');
-const request = require('request');
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-	res.setHeader('Content-Type', 'text/plain');
-	res.end('Hello World');
-});
-
-server.listen(port, hostname, () => {
-	console.log('Server running at http://${hostname}:${port}/');
-});
-
-request('http://www.google.com', function(error, response, body){
-	console.log(body);
-});
-*/
