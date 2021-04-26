@@ -25,6 +25,9 @@ const routes = require('./routes/index');
 const authRouter = require('./routes/auth');
 const DropBoxRouting = require('./routes/DropBoxRouting')
 */
+
+console.log("Database_URL", process.env.DATABASE_URL);
+
 app.set('view engine', 'pug');
 
 app.use(function(req, res, next) {
