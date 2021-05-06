@@ -1,0 +1,69 @@
+#main
+{
+	border: white 1px solid;	
+}
+
+p
+{
+	text-align: center;
+}
+
+#main
+{
+	width: 100%;
+	height: auto;
+	display: inline-block;
+}
+
+#leftSide, #imageFrame
+{
+	width:20%;
+	float: left;
+	background: green;
+	margin-left: 75px;
+	border: green 1px solid;
+	height: auto;
+}
+
+#rightSide
+{	
+	float: right;
+	width: 20%;
+	margin-right: 75px;
+	background: green;
+}
+
+#rightSide ul
+{
+	list-style-type: none;
+	padding: 20px 0 20px 0;
+	margin: 20px 0px 20px 0px;
+	
+}
+
+#rightSide li
+{
+	border: black 1px solid;
+}
+
+#rightSide img
+{
+	width:50px;
+	height:50px;	
+}
+
+#modal
+{
+	display: none;
+	position: fixed;
+	z-index:1;
+	background-color:rgba(0, 67, 265, 0.25);
+	width: 100%;
+	height: auto;
+}
+
+.modal_content 
+{
+	background-color: white;
+	position: absolute;
+}

@@ -1,0 +1,10 @@
+#imageHandler
+{
+	width: 490px;
+}
+
+#currImg
+{
+	/*480x600*/
+	border: red 5px solid;
+}
